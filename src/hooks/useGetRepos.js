@@ -7,10 +7,10 @@ const useGetRepos = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
+    // TODO: Handle loading and error using axios and axios hooks
     const searchRepos = async (query) => {
         setLoading(true);
         setMessage("");
-
         try {
             const response = await fetch(`${BASE_URL}?q=${query}`);
             const data = await response.json();

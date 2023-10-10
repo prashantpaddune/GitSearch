@@ -13,11 +13,12 @@ const Search = ({ onSearch = () => {} }) => {
         <SearchBox onSubmit={handleSubmit}>
             <SearchInput
                 type="text"
+                required
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder="Search for GitHub repos..."
             />
-            <SearchButton type="submit">Search</SearchButton>
+            <SearchButton type="submit" disabled={!query}>Search</SearchButton>
         </SearchBox>
     );
 }
