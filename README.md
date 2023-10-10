@@ -1,6 +1,7 @@
 # GitSearch 🔎
 
 A React application to search and display public GitHub repositories.
+http://16.171.35.92:3000/
 
 ## Table of Contents
 
