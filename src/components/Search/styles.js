@@ -4,11 +4,8 @@ export const SearchBox = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
   max-width: 600px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
 `;
 
 export const SearchInput = styled.input`

@@ -31,3 +31,9 @@ export const Message = styled.p`
   text-align: center;
   font-weight: 500;
 `;
+
+export const SearchBarContainer = styled.div`
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+`;

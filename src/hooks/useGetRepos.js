@@ -1,4 +1,5 @@
 import { useState } from "react";
+import getComparator from "../utils/getComparator";
 
 const BASE_URL = "https://api.github.com/search/repositories";
 
@@ -24,11 +25,18 @@ const useGetRepos = () => {
         setLoading(false);
     };
 
+    const handleSortChange = (sortKey) => {
+        const comparator = getComparator(sortKey);
+        const updatedRepos = repos.sort(comparator);
+        setRepos([...updatedRepos]);
+    }
+
     return {
         repos,
         searchRepos,
         loading,
-        message
+        message,
+        handleSortChange
     }
 }
 

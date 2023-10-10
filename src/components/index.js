@@ -1,15 +1,17 @@
 import React from 'react';
 import Search from './Search';
-import { RepoList, Container, Heading, CenteredContainer, Message } from './styles';
+import { RepoList, Container, Heading, CenteredContainer, Message, SearchBarContainer } from './styles';
 import RepoCard from "./RepoCard";
 import useGetRepos from "../hooks/useGetRepos";
+import Sort from "./Sort";
 
 function AppRoot() {
     const {
         loading = false,
         message = '',
         repos = [],
-        searchRepos = () => {}
+        searchRepos = () => {},
+        handleSortChange = () => {}
     } = useGetRepos();
 
     const renderData = () => {
@@ -38,9 +40,12 @@ function AppRoot() {
 
     return (
       <Container>
-        <Heading>GitHub Repo Search</Heading>
-        <Search onSearch={searchRepos} />
-        {renderData()}
+          <Heading>GitHub Repo Search</Heading>
+          <SearchBarContainer>
+              <Search onSearch={searchRepos} />
+              <Sort onSortChange={handleSortChange} />
+          </SearchBarContainer>
+          {renderData()}
       </Container>
   );
 }
