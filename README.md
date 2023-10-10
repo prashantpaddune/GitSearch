@@ -1,4 +1,4 @@
-# GitSearch
+# GitSearch 🔎
 
 A React application to search and display public GitHub repositories.
 
