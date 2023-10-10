@@ -1,22 +1,34 @@
 import { useState } from "react";
 
+const BASE_URL = "https://api.github.com/search/repositories";
+
 const useGetRepos = () => {
     const [repos, setRepos] = useState([]);
-    const BASE_URL = "https://api.github.com/search/repositories";
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState("");
 
     const searchRepos = async (query) => {
+        setLoading(true);
+        setMessage("");
+
         try {
             const response = await fetch(`${BASE_URL}?q=${query}`);
             const data = await response.json();
+            if (data.items.length === 0) {
+                setMessage("No repositories found.");
+            }
             setRepos(data.items);
         } catch (error) {
-            console.error("Error fetching repos:", error);
+            setMessage("Error fetching repos.");
         }
+        setLoading(false);
     };
 
     return {
         repos,
-        searchRepos
+        searchRepos,
+        loading,
+        message
     }
 }
 

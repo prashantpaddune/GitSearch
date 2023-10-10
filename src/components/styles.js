@@ -17,3 +17,17 @@ export const Container = styled.div``;
 export const Heading = styled.h1`
   text-align: center;
 `
+
+export const CenteredContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+`;
+
+export const Message = styled.p`
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+`;
